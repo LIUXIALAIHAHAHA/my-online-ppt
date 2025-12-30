@@ -59,13 +59,12 @@ elif current_slide == "第三页：SD 作品展示":
         st.image("20251230_081230_532.png", caption="假装这是一张二次元猫")
 
 
-# === 第四页：结尾 ===
+from streamlit_disqus import st_disqus
+
+# === 第四页：留言板 ===
 elif current_slide == "结尾：谢谢大家":
-    st.title("Q & A")
-    st.success("感谢观看！")
-
-    feedback = st.text_area("请留下您的反馈：")
-    if st.button("提交"):
-        st.write(f"收到反馈：{feedback}")
-
-        st.snow()
+    st.title("💬 留言讨论区")
+    st.write("欢迎在这里留下你的足迹！")
+    
+    # 只需要这一行，就会生成一个专业的评论区
+    st_disqus("my-streamlit-ppt")
