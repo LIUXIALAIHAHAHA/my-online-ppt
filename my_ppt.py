@@ -52,11 +52,11 @@ elif current_slide == "第三页：SD 作品展示":
     with tab1:
         st.write("这是用 Stable Diffusion 生成的未来城市...")
         # 这里可以用 st.image("你的本地图片路径.jpg")
-        st.image("20251230_081251_737", caption="假装这是一张赛博朋克猫")
+        st.image("20251230_081251_737.png", caption="假装这是一张赛博朋克猫")
 
     with tab2:
         st.write("这是二次元模型生成的角色...")
-        st.image("20251230_081230_532", caption="假装这是一张二次元猫")
+        st.image("20251230_081230_532.png", caption="假装这是一张二次元猫")
 
 
 # === 第四页：结尾 ===
@@ -67,4 +67,5 @@ elif current_slide == "结尾：谢谢大家":
     feedback = st.text_area("请留下您的反馈：")
     if st.button("提交"):
         st.write(f"收到反馈：{feedback}")
+
         st.snow()
