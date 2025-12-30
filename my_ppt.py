@@ -5,7 +5,7 @@ import streamlit.components.v1 as components
 # 1. 设置页面配置
 st.set_page_config(page_title="我的超级演示", layout="wide", page_icon="🎤")
 
-# === 核心逻辑：侧边栏大纲 ===
+# === 侧边栏目录 ===
 st.sidebar.title("📑 演示大纲")
 slides = ["封面：为什么选 Streamlit?", "第二页：交互式图表", "第三页：SD 作品展示", "结尾：大家来讨论"]
 current_slide = st.sidebar.radio("跳转到：", slides)
@@ -33,12 +33,12 @@ elif current_slide == "第三页：SD 作品展示":
     with col2:
         st.image("20251230_081230_532.png", caption="二次元风格")
 
-# === 第四页：Giscus 互动留言板 ===
+# === 第四页：Giscus 互动留言板 (最稳方案) ===
 elif current_slide == "结尾：大家来讨论":
     st.title("💬 互动留言板")
-    st.write("欢迎在下方留言！评论将同步至 GitHub Discussions。")
+    st.write("欢迎在下方留言！评论将同步至你的 GitHub Discussions。")
 
-    # 嵌入 Giscus 评论组件 (已针对你的仓库配置)
+    # 嵌入 Giscus 评论组件
     components.html(
         """
         <script src="https://giscus.app/client.js"
@@ -51,7 +51,7 @@ elif current_slide == "结尾：大家来讨论":
             data-reactions-enabled="1"
             data-emit-metadata="0"
             data-input-position="top"
-            data-theme="preferred_color_scheme"
+            data-theme="light"
             data-lang="zh-CN"
             crossorigin="anonymous"
             async>
@@ -60,4 +60,4 @@ elif current_slide == "结尾：大家来讨论":
         height=600,
         scrolling=True,
     )
-    st.info("提示：首次留言需要登录 GitHub 账号授权。")
+    st.info("💡 提示：留言需登录 GitHub 账号，数据永远不会丢失！")
