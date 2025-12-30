@@ -47,10 +47,34 @@ elif current_slide == "第三页：SD 作品展示":
         st.write("这是二次元模型生成的角色...")
         st.image("20251230_081230_532.png", caption="二次元动漫风格")
 
-# === 第四页：专业留言板 (不再有语法错误) ===
+# === 第四页：GitHub 讨论留言板 ===
 elif current_slide == "结尾：大家来讨论":
-    st.title("💬 留言讨论区")
-    st.write("欢迎在这里留下你的足迹！")
-    # 使用唯一的 ID 来标识这个留言板
-    st_disqus("my-cool-ppt-2025-v1")
-    st.success("提示：留言内容将永久保存，大家刷新网页也能看到。")
+    st.title("💬 互动留言板")
+    st.write("欢迎在这里留言，数据将同步到 GitHub Discussions！")
+
+    # 嵌入 Giscus 评论组件
+    import streamlit.components.v1 as components
+    
+    # 这一段 HTML 会自动加载评论框
+    components.html(
+        """
+        <script src="https://giscus.app/client.js"
+            data-repo="LIUXIALAIHAHAHA/my-online-ppt"
+            data-repo-id="R_kgDONn5Eag"
+            data-category="Announcements"
+            data-category-id="DIC_kwDONn5Eas4Cl4S_"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+        </script>
+        """,
+        height=600,
+        scrolling=True
+    )
+    st.success("提示：留言需要登录 GitHub 账号，数据永远不会丢失。")
